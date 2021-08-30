@@ -12,6 +12,7 @@
 
          var map, marker1, marker2;
          var portmarker1, portmarker2;
+         var markerPosition, markerPosition2;
          var markers = [];
          
          var polyline;
@@ -120,7 +121,7 @@
                            }
                         }
 
-                        var markerPosition = new Tmapv2.LatLng(Number(lat),Number(lon));
+                        markerPosition = new Tmapv2.LatLng(Number(lat),Number(lon));
 
                         // 마커 올리기
                         marker1 = new Tmapv2.Marker(
@@ -361,7 +362,7 @@
                            }
                         }
 
-                        var markerPosition2 = new Tmapv2.LatLng(Number(lat),Number(lon));
+                        markerPosition2 = new Tmapv2.LatLng(Number(lat),Number(lon));
 
                         // 마커 올리기
                         marker2 = new Tmapv2.Marker(
@@ -620,113 +621,207 @@
                }
             });
             
-         $("#btn_findpath").click(function(){
-               
-               
-               var selected_port1 = $("#port1 option:selected").val();
-               var selected_port2 = $("#port2 option:selected").val();
-               
-               
-               if( selected_port1 == "구미역" && selected_port2 == "금오공과대학교" ){
-                  polyline = new Tmapv2.Polyline({
-                        path: [
-                            new Tmapv2.LatLng(36.1284581800925, 128.33072279764565), // 선의 꼭짓점 좌표
-                            new Tmapv2.LatLng(36.14606248008849, 128.393437497646)
-                        ],
-                        strokeColor: "#dd00dd", // 라인 색상
-                        strokeWeight: 6, // 라인 두께
-                        strokeStyle: "solid", // 선의 종류
-                        direction: true,
-                        map: map // 지도 객체
-                    });
-               }
-               
-            if(selected_port1 == "구미역" && selected_port2 == "구미대학교"){
-               polyline = new Tmapv2.Polyline({
-                        path: [
-                            new Tmapv2.LatLng(36.1284581800925, 128.33072279764565), // 선의 꼭짓점 좌표
-                            new Tmapv2.LatLng(36.150814990548696, 128.2893162688104)
-                        ],
-                        strokeColor: "#dd00dd", // 라인 색상
-                        strokeWeight: 6, // 라인 두께
-                        strokeStyle: "solid", // 선의 종류
-                        direction: true,
-                        map: map // 지도 객체
-                    });
-               }
-            if(selected_port1 == "금오공과대학교" && selected_port2 == "구미역"){
-               polyline = new Tmapv2.Polyline({
-                        path: [
-                            new Tmapv2.LatLng(36.14606248008849, 128.393437497646), // 선의 꼭짓점 좌표
-                            new Tmapv2.LatLng(36.1284581800925, 128.33072279764565)
-                        ],
-                        strokeColor: "#dd00dd", // 라인 색상
-                        strokeWeight: 6, // 라인 두께
-                        strokeStyle: "solid", // 선의 종류
-                        direction: true,
-                        map: map // 지도 객체
-                    });
-               }
-            if(selected_port1 == "금오공과대학교" && selected_port2 == "구미대학교"){
-               polyline = new Tmapv2.Polyline({
-                        path: [
-                            new Tmapv2.LatLng(36.14606248008849, 128.393437497646), // 선의 꼭짓점 좌표
-                            new Tmapv2.LatLng(36.150814990548696, 128.2893162688104)
-                        ],
-                        strokeColor: "#dd00dd", // 라인 색상
-                        strokeWeight: 6, // 라인 두께
-                        strokeStyle: "solid", // 선의 종류
-                        direction: true,
-                        map: map // 지도 객체
-                    });
-               }
-            if(selected_port1 == "구미대학교" && selected_port2 == "구미역"){
-               polyline = new Tmapv2.Polyline({
-                        path: [
-                            new Tmapv2.LatLng(36.150814990548696, 128.2893162688104), // 선의 꼭짓점 좌표
-                            new Tmapv2.LatLng(36.1284581800925, 128.33072279764565)
-                        ],
-                        strokeColor: "#dd00dd", // 라인 색상
-                        strokeWeight: 6, // 라인 두께
-                        strokeStyle: "solid", // 선의 종류
-                        direction: true,
-                        map: map // 지도 객체
-                    });
-               }
-            if(selected_port1 == "구미대학교" && selected_port2 == "금오공과대학교"){
-               polyline = new Tmapv2.Polyline({
-                        path: [
-                            new Tmapv2.LatLng(36.150814990548696, 128.2893162688104), // 선의 꼭짓점 좌표
-                            new Tmapv2.LatLng(36.14606248008849, 128.393437497646)
-                        ],
-                        strokeColor: "#dd00dd", // 라인 색상
-                        strokeWeight: 6, // 라인 두께
-                        strokeStyle: "solid", // 선의 종류
-                        direction: true,
-                        map: map // 지도 객체
-                    });
-               }
-            });
+         };
          
-            
+         function getRP(){
+            var s_latlng = markerPosition;            //출발지
+            var e_latlng = markerPosition2;         //도착지
+                
+            var optionObj = {
+                  reqCoordType:"WGS84GEO", //요청 좌표계 옵셥 설정입니다.
+                  resCoordType:"WGS84GEO",  //응답 좌표계 옵셥 설정입니다.
+                  trafficInfo:"Y"
+            };
+                
+            var params = {
+                  onComplete:onComplete,
+                  onProgress:onProgress,
+                  onError:onError
+            };
+                
+               // TData 객체 생성
+            var tData = new Tmapv2.extension.TData();
+               
+               // TData 객체의 경로요청 함수
+            tData.getRoutePlanJson(s_latlng, e_latlng, optionObj, params);
          }
+         
+         function getRP2(){
+            var selected_port1 = $("#port1 option:selected").val();
+             var selected_port2 = $("#port2 option:selected").val();
+             
+             var s_latlng = markerPosition;
+             var e_latlng = markerPosition2;
+             
+             var optionObj = {
+                   reqCoordType:"WGS84GEO", //요청 좌표계 옵셥 설정입니다.
+                   resCoordType:"WGS84GEO",  //응답 좌표계 옵셥 설정입니다.
+                   trafficInfo:"Y"
+             };
+             
+             var params = {
+                   onComplete:onComplete,
+                   onProgress:onProgress,
+                   onError:onError
+             };
+             
+             var tData = new Tmapv2.extension.TData();
+             var tData2 = new Tmapv2.extension.TData();
+             
+             if (selected_port1 == "구미역" && selected_port2 == "금오공과대학교"){
+                var s_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                var e_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                
+                tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                polyline = new Tmapv2.Polyline({
+                     path: [
+                    	 s_port, // 선의 꼭짓점 좌표
+                    	 e_port
+                     ],
+                     strokeColor: "#dd00dd", // 라인 색상
+                     strokeWeight: 6, // 라인 두께
+                     strokeStyle: "solid", // 선의 종류
+                     direction: true,
+                     map: map // 지도 객체
+                 });
+                tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+            
+                
+             }
+             if (selected_port1 == "구미역" && selected_port2 == "구미대학교"){
+                var s_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                var e_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                
+                tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                polyline = new Tmapv2.Polyline({
+                     path: [
+                    	 s_port, // 선의 꼭짓점 좌표
+                    	 e_port
+                     ],
+                     strokeColor: "#dd00dd", // 라인 색상
+                     strokeWeight: 6, // 라인 두께
+                     strokeStyle: "solid", // 선의 종류
+                     direction: true,
+                     map: map // 지도 객체
+                 });
+                tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+             }
+             if (selected_port1 == "금오공과대학교" && selected_port2 == "구미역"){
+                var s_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                var e_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                
+                tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                polyline = new Tmapv2.Polyline({
+                     path: [
+                    	 s_port, // 선의 꼭짓점 좌표
+                    	 e_port
+                     ],
+                     strokeColor: "#dd00dd", // 라인 색상
+                     strokeWeight: 6, // 라인 두께
+                     strokeStyle: "solid", // 선의 종류
+                     direction: true,
+                     map: map // 지도 객체
+                 });
+                tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+             }
+             if (selected_port1 == "금오공과대학교" && selected_port2 == "구미대학교"){
+                var s_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                var e_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                
+                tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                polyline = new Tmapv2.Polyline({
+                     path: [
+                    	 s_port, // 선의 꼭짓점 좌표
+                         e_port
+                     ],
+                     strokeColor: "#dd00dd", // 라인 색상
+                     strokeWeight: 6, // 라인 두께
+                     strokeStyle: "solid", // 선의 종류
+                     direction: true,
+                     map: map // 지도 객체
+                 });
+                tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+             }
+             if (selected_port1 == "구미대학교" && selected_port2 == "구미역"){
+                var s_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                var e_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                
+                tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                polyline = new Tmapv2.Polyline({
+                     path: [
+                    	 s_port, // 선의 꼭짓점 좌표
+                    	 e_port
+                     ],
+                     strokeColor: "#dd00dd", // 라인 색상
+                     strokeWeight: 6, // 라인 두께
+                     strokeStyle: "solid", // 선의 종류
+                     direction: true,
+                     map: map // 지도 객체
+                 });
+                tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+             }
+             if (selected_port1 == "구미대학교" && selected_port2 == "금오공과대학교"){
+                var s_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                var e_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                
+                tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                polyline = new Tmapv2.Polyline({
+                     path: [
+                    	 s_port, // 선의 꼭짓점 좌표
+                    	 e_port
+                     ],
+                     strokeColor: "#dd00dd", // 라인 색상
+                     strokeWeight: 6, // 라인 두께
+                     strokeStyle: "solid", // 선의 종류
+                     direction: true,
+                     map: map // 지도 객체
+                 });
+                tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+             }
+         }
+             
+             
+         function onComplete() {
+            console.log(this._responseData); //json으로 데이터를 받은 정보들을 콘솔창에서 확인할 수 있습니다.
+            var jsonObject = new Tmapv2.extension.GeoJSON();
+            var jsonForm = jsonObject.rpTrafficRead(this._responseData);
+            
+            //교통정보 표출시 생성되는 LineColor 입니다.
+            var trafficColors = {
+                 // 교통정보 옵션 - 라인색상
+                 trafficDefaultColor:"#000000", //교통 정보가 없을 때
+                 trafficType1Color:"#009900", //원활
+                 trafficType2Color:"#7A8E0A", //서행
+                 trafficType3Color:"#8E8111",  //정체
+                 trafficType4Color:"#FF0000"  //정체
+            };
+            jsonObject.drawRouteByTraffic(map, jsonForm, trafficColors);
+            map.setZoom(14);
+         }
+         
+       //데이터 로드중 실행하는 함수입니다.
+       function onProgress(){}
+       
+       //데이터 로드 중 에러가 발생시 실행하는 함수입니다.
+       function onError(){
+          alert("onError");
+       }
+         
          
          
 
       </script>
-      <input class="burger-check" type="checkbox" id="burger-check" />
+     <input class="burger-check" type="checkbox" id="burger-check" />
       <label class="burger-icon" for="burger-check">
       <span class="burger-sticks"></span></label>
       <div class="menu">
          <input width="0pt" height="0pt" type="text" class="text_custom" id="fullAddr"
-         name="fullAddr" value="경상북도 구미시 강동로 730">
-         <button id="btn_select">적용하기</button>
+         name="fullAddr" placeholder="출발지(ex:강동로 730)">
+         <button id="btn_select">적용</button>
          <br>
          <input type="text" class="text_custom2" id="fullAddr2"
-            name="fullAddr2" value="경상북도 구미시 송원동로 72">
-         <button id="btn_select2">적용하기</button>
-         
-         
+            name="fullAddr2" placeholder="도착지(ex:송원동로 72)">
+         <button id="btn_select2">적용</button>
          
          
          <br>
@@ -747,7 +842,8 @@
          <button id="port_select2">적용하기</button>
          <br>
          
-         <button id="btn_findpath">길찾기</button>
+         <button onClick="getRP()">길찾기 (포트미사용)</button>
+         <button onClick="getRP2()">길찾기 (포트사용)</button>
          
          
          
