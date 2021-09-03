@@ -5,7 +5,7 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <link rel="stylesheet" type="text/css" href="j.css">
-      <title>simpleMap</title>
+      <title>ISNV</title>
       <script   src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=l7xx899515de5a4f47c5a62978a685b3fec9"></script>
 <script type="text/javascript">
