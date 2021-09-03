@@ -7,7 +7,7 @@
       <link rel="stylesheet" type="text/css" href="j.css">
       <title>simpleMap</title>
       <script   src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=l7xxbcdfe5a6caff46408af3c7132f7c635a"></script>
+      <script src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=l7xx899515de5a4f47c5a62978a685b3fec9"></script>
 <script type="text/javascript">
 
          var map, marker1, marker2;
@@ -76,7 +76,7 @@
                   url : "https://apis.openapi.sk.com/tmap/geo/fullAddrGeo?version=1&format=json&callback=result",
                   async : false,
                   data : {
-                     "appKey" : "l7xxbcdfe5a6caff46408af3c7132f7c635a",
+                     "appKey" : "l7xx899515de5a4f47c5a62978a685b3fec9",
                      "coordType" : "WGS84GEO",
                      "fullAddr" : fullAddr
                   },
@@ -317,7 +317,7 @@
                   url : "https://apis.openapi.sk.com/tmap/geo/fullAddrGeo?version=1&format=json&callback=result",
                   async : false,
                   data : {
-                     "appKey" : "l7xxbcdfe5a6caff46408af3c7132f7c635a",
+                     "appKey" : "l7xx899515de5a4f47c5a62978a685b3fec9",
                      "coordType" : "WGS84GEO",
                      "fullAddr" : fullAddr2
                   },
@@ -583,6 +583,36 @@
                   markers.push(portmarker1);
                   map.setCenter(new Tmapv2.LatLng(36.150814990548696, 128.2893162688104));
                }
+               if (selected_port1 == "해마루공원"){
+                   portmarker1 = new Tmapv2.Marker({
+                      position: new Tmapv2.LatLng(36.143001508792565, 128.4318647975816),
+                      icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_1.png",
+                      iconSize : new Tmapv2.Size(24, 38),
+                      map:map
+                   });
+                   markers.push(portmarker1);
+                   map.setCenter(new Tmapv2.LatLng(36.143001508792565, 128.4318647975816));
+                }
+               if (selected_port1 == "강변체육공원"){
+                   portmarker1 = new Tmapv2.Marker({
+                      position: new Tmapv2.LatLng(36.1137610491927, 128.3934586111375),
+                      icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_1.png",
+                      iconSize : new Tmapv2.Size(24, 38),
+                      map:map
+                   });
+                   markers.push(portmarker1);
+                   map.setCenter(new Tmapv2.LatLng(36.1137610491927, 128.3934586111375));
+                }
+               if (selected_port1 == "형곡근린공원"){
+                   portmarker1 = new Tmapv2.Marker({
+                      position: new Tmapv2.LatLng(36.11394957854545, 128.33590932274623),
+                      icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_1.png",
+                      iconSize : new Tmapv2.Size(24, 38),
+                      map:map
+                   });
+                   markers.push(portmarker1);
+                   map.setCenter(new Tmapv2.LatLng(36.11394957854545, 128.33590932274623));
+                }
             });
             
             
@@ -619,6 +649,36 @@
                   markers.push(portmarker2);
                   map.setCenter(new Tmapv2.LatLng(36.150814990548696, 128.2893162688104));
                }
+               if (selected_port2 == "해마루공원"){
+                   portmarker2 = new Tmapv2.Marker({
+                      position: new Tmapv2.LatLng(36.143001508792565, 128.4318647975816),
+                      icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_2.png",
+                      iconSize : new Tmapv2.Size(24, 38),
+                      map:map
+                   });
+                   markers.push(portmarker2);
+                   map.setCenter(new Tmapv2.LatLng(36.143001508792565, 128.4318647975816));
+                }
+               if (selected_port2 == "강변체육공원"){
+                   portmarker2 = new Tmapv2.Marker({
+                      position: new Tmapv2.LatLng(36.1137610491927, 128.3934586111375),
+                      icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_2.png",
+                      iconSize : new Tmapv2.Size(24, 38),
+                      map:map
+                   });
+                   markers.push(portmarker2);
+                   map.setCenter(new Tmapv2.LatLng(36.1137610491927, 128.3934586111375));
+                }
+               if (selected_port2 == "형곡근린공원"){
+                   portmarker2 = new Tmapv2.Marker({
+                      position: new Tmapv2.LatLng(36.11394957854545, 128.33590932274623),
+                      icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_2.png",
+                      iconSize : new Tmapv2.Size(24, 38),
+                      map:map
+                   });
+                   markers.push(portmarker2);
+                   map.setCenter(new Tmapv2.LatLng(36.11394957854545, 128.33590932274623));
+                }
             });
             
          };
@@ -706,6 +766,80 @@
                  });
                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
              }
+             if (selected_port1 == "구미역" && selected_port2 == "해마루공원"){
+                 var s_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                 var e_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "구미역" && selected_port2 == "강변체육공원"){
+                 var s_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                 var e_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "구미역" && selected_port2 == "형곡근린공원"){
+                 var s_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                 var e_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "구미역" && selected_port2 == "동락공원"){
+                 var s_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                 var e_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             
+             
              if (selected_port1 == "금오공과대학교" && selected_port2 == "구미역"){
                 var s_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
                 var e_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
@@ -742,6 +876,80 @@
                  });
                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
              }
+             if (selected_port1 == "금오공과대학교" && selected_port2 == "해마루공원"){
+                 var s_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                 var e_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                          e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "금오공과대학교" && selected_port2 == "강변체육공원"){
+                 var s_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                 var e_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                          e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "금오공과대학교" && selected_port2 == "형곡근린공원"){
+                 var s_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                 var e_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                          e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "금오공과대학교" && selected_port2 == "동락공원"){
+                 var s_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                 var e_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                          e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             
+             
              if (selected_port1 == "구미대학교" && selected_port2 == "구미역"){
                 var s_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
                 var e_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
@@ -778,6 +986,517 @@
                  });
                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
              }
+             if (selected_port1 == "구미대학교" && selected_port2 == "해마루공원"){
+                 var s_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                 var e_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "구미대학교" && selected_port2 == "강변체육공원"){
+                 var s_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                 var e_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "구미대학교" && selected_port2 == "형곡근린공원"){
+                 var s_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                 var e_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "구미대학교" && selected_port2 == "동락공원"){
+                 var s_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                 var e_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             
+             if (selected_port1 == "해마루공원" && selected_port2 == "구미역"){
+                 var s_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 var e_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "해마루공원" && selected_port2 == "금오공과대학교"){
+                 var s_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 var e_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "해마루공원" && selected_port2 == "구미대학교"){
+                 var s_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 var e_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "해마루공원" && selected_port2 == "강변체육공원"){
+                 var s_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 var e_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "해마루공원" && selected_port2 == "형곡근린공원"){
+                 var s_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 var e_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "해마루공원" && selected_port2 == "동락공원"){
+                 var s_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 var e_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             
+             
+             if (selected_port1 == "강변체육공원" && selected_port2 == "구미역"){
+                 var s_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 var e_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "강변체육공원" && selected_port2 == "금오공과대학교"){
+                 var s_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 var e_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "강변체육공원" && selected_port2 == "구미대학교"){
+                 var s_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 var e_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "강변체육공원" && selected_port2 == "해마루공원"){
+                 var s_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 var e_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "강변체육공원" && selected_port2 == "형곡근린공원"){
+                 var s_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 var e_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "강변체육공원" && selected_port2 == "동락공원"){
+                 var s_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 var e_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             
+             
+             if (selected_port1 == "형곡근린공원" && selected_port2 == "구미역"){
+                 var s_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 var e_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "형곡근린공원" && selected_port2 == "금오공과대학교"){
+                 var s_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 var e_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "형곡근린공원" && selected_port2 == "구미대학교"){
+                 var s_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 var e_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "형곡근린공원" && selected_port2 == "해마루공원"){
+                 var s_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 var e_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "형곡근린공원" && selected_port2 == "강변체육공원"){
+                 var s_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 var e_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "형곡근린공원" && selected_port2 == "동락공원"){
+                 var s_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 var e_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             
+             
+             if (selected_port1 == "동락공원" && selected_port2 == "구미역"){
+                 var s_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 var e_port = new Tmapv2.LatLng(36.1284581800925, 128.33072279764565);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "동락공원" && selected_port2 == "금오공과대학교"){
+                 var s_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 var e_port = new Tmapv2.LatLng(36.14606248008849, 128.393437497646);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "동락공원" && selected_port2 == "구미대학교"){
+                 var s_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 var e_port = new Tmapv2.LatLng(36.150814990548696, 128.2893162688104);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "동락공원" && selected_port2 == "해마루공원"){
+                 var s_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 var e_port = new Tmapv2.LatLng(36.143001508792565, 128.4318647975816);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "동락공원" && selected_port2 == "강변체육공원"){
+                 var s_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 var e_port = new Tmapv2.LatLng(36.1137610491927, 128.3934586111375);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
+             if (selected_port1 == "동락공원" && selected_port2 == "형곡근린공원"){
+                 var s_port = new Tmapv2.LatLng(36.10133827508044, 128.4013857335879);
+                 var e_port = new Tmapv2.LatLng(36.11394957854545, 128.33590932274623);
+                 
+                 tData.getRoutePlanJson(s_latlng, s_port, optionObj, params);
+                 polyline = new Tmapv2.Polyline({
+                      path: [
+                     	 s_port, // 선의 꼭짓점 좌표
+                     	 e_port
+                      ],
+                      strokeColor: "#dd00dd", // 라인 색상
+                      strokeWeight: 6, // 라인 두께
+                      strokeStyle: "solid", // 선의 종류
+                      direction: true,
+                      map: map // 지도 객체
+                  });
+                 tData2.getRoutePlanJson(e_port, e_latlng, optionObj, params);
+              }
          }
              
              
@@ -830,6 +1549,10 @@
             <option value="구미역">구미역</option>
             <option value="금오공과대학교">금오공과대학교</option>
             <option value="구미대학교">구미대학교</option>
+            <option value="해마루공원">해마루공원</option>
+            <option value="강변체육공원">강변체육공원</option>
+            <option value="형곡근린공원">형곡근린공원(구미시립도서관)</option>
+            <option value="동락공원">동락공원</option>
          </select>
          <button id="port_select1">적용하기</button>
          <br>
@@ -838,6 +1561,10 @@
             <option value="구미역">구미역</option>
             <option value="금오공과대학교">금오공과대학교</option>
             <option value="구미대학교">구미대학교</option>
+            <option value="해마루공원">해마루공원</option>
+            <option value="강변체육공원">강변체육공원</option>
+            <option value="형곡근린공원">형곡근린공원(구미시립도서관)</option>
+            <option value="동락공원">동락공원</option>
          </select>
          <button id="port_select2">적용하기</button>
          <br>
